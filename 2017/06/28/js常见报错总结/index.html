@@ -176,9 +176,10 @@
 <p>2.<em>Uncaught ReferenceError: Invalid left-hand side in assignment</em></p>
 <blockquote>
 <p>相关错误： </p>
-<h2 id="gt-2-1-Uncaught-exception-ReferenceError-Cannot-assign-to-‘functionCall-’"><a href="#gt-2-1-Uncaught-exception-ReferenceError-Cannot-assign-to-‘functionCall-’" class="headerlink" title="&gt;2.1 Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’  "></a>&gt;2.1 <em>Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’</em>  </h2><blockquote>
-<p>2.2 <em>Uncaught exception: ReferenceError: Cannot assign to ‘this’</em></p>
-</blockquote>
+<ul>
+<li><em>Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’</em>  </li>
+<li><em>Uncaught exception: ReferenceError: Cannot assign to ‘this’</em></li>
+</ul>
 </blockquote>
 <ul>
 <li>错误产生：你试图给某某赋值，但是赋值不成功时产生错误。</li>
@@ -190,7 +191,10 @@
 </ul>
 <p>3.<em>Uncaught TypeError: Converting circular structure to JSON</em></p>
 <blockquote>
-<p><em>TypeError: cyclic object value, Circular reference in value argument not supported</em></p>
+<p>相关错误:</p>
+<ul>
+<li><em>TypeError: cyclic object value, Circular reference in value argument not supported</em></li>
+</ul>
 </blockquote>
 <ul>
 <li><p>错误产生：产生了环形引用，然后再进行JSON转换（JSON.stringify）时产生错误，如下面代码所示，a和b进行了相互引用，因此不能转换为JSON。</p>
@@ -202,13 +206,11 @@
 <p>4.<em>Unexpected token ;</em></p>
 <blockquote>
 <p>相关错误: </p>
-<blockquote>
 <ul>
 <li>Expected ),</li>
 <li>missing ) after argument list，</li>
 <li>Unexpected token ]</li>
 </ul>
-</blockquote>
 </blockquote>
 <ul>
 <li>错误产生：JS编译器需要点什么，代码里却没有。通常是忘记了匹配的)、]、}、;等。</li>

@@ -200,6 +200,92 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/20/phpstudy/">
+                搭建HTTP服务器之phpStudy集成软件安装图解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015-07-20</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/javescript/">javescript</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="搭建HTTP服务器"><a href="#搭建HTTP服务器" class="headerlink" title="搭建HTTP服务器"></a>搭建HTTP服务器</h2><blockquote>
+<p>Windows + Apache + Mysql + PHP。</p>
+</blockquote>
+<h4 id="4-1-什么是集成开发环境软件？"><a href="#4-1-什么是集成开发环境软件？" class="headerlink" title="4.1 什么是集成开发环境软件？"></a>4.1 什么是集成开发环境软件？</h4><p>360一键安装包 : 360浏览器 + 360杀毒 + 360软件管家 + 360手机助手</p>
+<p>phpStudy集成软件: { windows } + Apache + Mysql + PHP，首字母组合。</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy.png" alt=""></p>
+<h4 id="4-2-安装phpStudy"><a href="#4-2-安装phpStudy" class="headerlink" title="4.2 安装phpStudy"></a>4.2 安装phpStudy</h4><p>安装phpStudy，解压双击安装(<strong>非中文路径</strong>)，其它默认安装。</p>
+<h4 id="4-3-管理HTTP服务"><a href="#4-3-管理HTTP服务" class="headerlink" title="4.3 管理HTTP服务"></a>4.3 管理HTTP服务</h4><p>任务图标<strong>绿色为正常启动</strong>状态<br>通过图形控制台可以启动、重启、停止所有服务  </p>
+<p><strong>注意事项：</strong><br>1、检查网络是不是通的 ping 对方IP<br>2、检查防火墙是否开启，如果开启将不能正常被访问<br>3、理解默认索引<br>4、确保端口没有被<strong>其它程序</strong>占用<br>5、修改配置要格外小心，禁止<strong>无意修改</strong>其它内容  </p>
+<h4 id="4-4-访问根目录"><a href="#4-4-访问根目录" class="headerlink" title="4.4 访问根目录"></a>4.4 访问根目录</h4><ul>
+<li><p>1、服务器软件安装后，输入ip地址（或者回环IP地址：127.0.0.1）。</p>
+</li>
+<li><p>2、默认会打开 WWW 目录，该目录为根目录</p>
+</li>
+<li><p>3、如果文件夹中，有index.html 或 index.php文件，会被默认打开。</p>
+</li>
+</ul>
+<h4 id="4-5-更改网站内容"><a href="#4-5-更改网站内容" class="headerlink" title="4.5 更改网站内容"></a>4.5 更改网站内容</h4><p>将我们制作好的网页<strong>拷贝</strong>到配置好的根目录下，浏览器访问127.0.0.1即可。</p>
+<h4 id="4-6-配置多个网站"><a href="#4-6-配置多个网站" class="headerlink" title="4.6 配置多个网站"></a>4.6 配置多个网站</h4><p>步骤1：phpstudy其他选项设置</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_01.png" alt=""></p>
+<p>步骤2：phpstudy其他选项设置 —-&gt; 站点和域名管理</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_02.png" alt=""></p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_03.png" alt=""></p>
+<p>步骤3：phpstudy 其他选项设置 —-&gt;打开host文件</p>
+<blockquote>
+<p>注意：如果修改host文件，出现权限问题。则将文拷贝到桌面，修改。然后再粘到<br>C:\Windows\System32\drivers\etc  文件夹下</p>
+</blockquote>
+<p><img src="/2015/07/20/phpstudy/phpstudy_04_1.png" alt=""></p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_04_2.png" alt=""></p>
+<p>把域名和ip地址对应（以后浏览器，看到这个网址代表的就会找这个IP的电脑）</p>
+<p>完成配置后，则可以域名，或者ip形式访问。</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_05.png" alt=""></p>
+<h4 id="4-7-开放目录形式访问权限"><a href="#4-7-开放目录形式访问权限" class="headerlink" title="4.7 开放目录形式访问权限"></a>4.7 开放目录形式访问权限</h4><blockquote>
+<p>注意：<br>当网站设置了域名后（为了安全性），phpstudy默认会关闭目录形式的访问(没有Index文件，不显示</p>
+</blockquote>
+<p>目录)</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_06.png" alt=""></p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_07.png" alt=""></p>
+<p>为了开发调式方便，我们可以自己打开目录形式的访问。</p>
+<p>步骤1： phpstudy其他选项设置—&gt;phpstudy设置—-&gt;允许目录列表（勾选）</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_08.png" alt=""></p>
+<p>步骤2： phpstudy其他选项设置—&gt;打开配置文件—&gt;  vhosts-conf</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_09.png" alt=""></p>
+<p>步骤3：更改options 配置</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_10.png" alt=""></p>
+<p>修改如下：</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_11.png" alt=""></p>
+<p>如配有多个网站则逐一修改即可。</p>
+<p>修改完成，<strong>重启phpstudy软件</strong>，则可以显示网站的目录</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_12.png" alt=""></p>
+<h4 id="4-8-更改默认打开首页"><a href="#4-8-更改默认打开首页" class="headerlink" title="4.8 更改默认打开首页"></a>4.8 更改默认打开首页</h4><p>更改步骤1：phpstudy其他选项设置</p>
+<p>更改步骤2：phpstudy设置 —-&gt; 端口常规设置</p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_13.png" alt=""></p>
+<p><img src="/2015/07/20/phpstudy/phpstudy_14.png" alt=""></p>
+<p>默认进入网站时，会寻找目录中的index.html ，index.php , index.htm文件</p>
+<p>也可以把index.php文件，排在最前面，这样可以优先找到index.php文件(方便学习php开发)。</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/">
                 搭建HTTP服务器之phpStudy集成软件安装图解
             </a>
@@ -224,7 +310,7 @@
 </blockquote>
 <h4 id="4-1-什么是集成开发环境软件？"><a href="#4-1-什么是集成开发环境软件？" class="headerlink" title="4.1 什么是集成开发环境软件？"></a>4.1 什么是集成开发环境软件？</h4><p>360一键安装包 : 360浏览器 + 360杀毒 + 360软件管家 + 360手机助手</p>
 <p>phpStudy集成软件: { windows } + Apache + Mysql + PHP，首字母组合。</p>
-<p><img src="./images/phpstudy.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy.png" alt=""></p>
 <h4 id="4-2-安装phpStudy"><a href="#4-2-安装phpStudy" class="headerlink" title="4.2 安装phpStudy"></a>4.2 安装phpStudy</h4><p>安装phpStudy，解压双击安装(<strong>非中文路径</strong>)，其它默认安装。</p>
 <h4 id="4-3-管理HTTP服务"><a href="#4-3-管理HTTP服务" class="headerlink" title="4.3 管理HTTP服务"></a>4.3 管理HTTP服务</h4><p>任务图标<strong>绿色为正常启动</strong>状态<br>通过图形控制台可以启动、重启、停止所有服务  </p>
 <p><strong>注意事项：</strong><br>1、检查网络是不是通的 ping 对方IP<br>2、检查防火墙是否开启，如果开启将不能正常被访问<br>3、理解默认索引<br>4、确保端口没有被<strong>其它程序</strong>占用<br>5、修改配置要格外小心，禁止<strong>无意修改</strong>其它内容  </p>
@@ -238,41 +324,41 @@
 </ul>
 <h4 id="4-5-更改网站内容"><a href="#4-5-更改网站内容" class="headerlink" title="4.5 更改网站内容"></a>4.5 更改网站内容</h4><p>将我们制作好的网页<strong>拷贝</strong>到配置好的根目录下，浏览器访问127.0.0.1即可。</p>
 <h4 id="4-6-配置多个网站"><a href="#4-6-配置多个网站" class="headerlink" title="4.6 配置多个网站"></a>4.6 配置多个网站</h4><p>步骤1：phpstudy其他选项设置</p>
-<p><img src="./images/phpstudy_01.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_01.png" alt=""></p>
 <p>步骤2：phpstudy其他选项设置 —-&gt; 站点和域名管理</p>
-<p><img src="./images/phpstudy_02.png" alt=""></p>
-<p><img src="./images/phpstudy_03.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_02.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_03.png" alt=""></p>
 <p>步骤3：phpstudy 其他选项设置 —-&gt;打开host文件</p>
 <blockquote>
 <p>注意：如果修改host文件，出现权限问题。则将文拷贝到桌面，修改。然后再粘到<br>C:\Windows\System32\drivers\etc  文件夹下</p>
 </blockquote>
-<p><img src="./images/phpstudy_04_1.png" alt=""></p>
-<p><img src="./images/phpstudy_04_2.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_04_1.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_04_2.png" alt=""></p>
 <p>把域名和ip地址对应（以后浏览器，看到这个网址代表的就会找这个IP的电脑）</p>
 <p>完成配置后，则可以域名，或者ip形式访问。</p>
-<p><img src="./images/phpstudy_05.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_05.png" alt=""></p>
 <h4 id="4-7-开放目录形式访问权限"><a href="#4-7-开放目录形式访问权限" class="headerlink" title="4.7 开放目录形式访问权限"></a>4.7 开放目录形式访问权限</h4><blockquote>
 <p>注意：<br>当网站设置了域名后（为了安全性），phpstudy默认会关闭目录形式的访问(没有Index文件，不显示</p>
 </blockquote>
 <p>目录)</p>
-<p><img src="./images/phpstudy_06.png" alt=""></p>
-<p><img src="./images/phpstudy_07.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_06.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_07.png" alt=""></p>
 <p>为了开发调式方便，我们可以自己打开目录形式的访问。</p>
 <p>步骤1： phpstudy其他选项设置—&gt;phpstudy设置—-&gt;允许目录列表（勾选）</p>
-<p><img src="./images/phpstudy_08.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_08.png" alt=""></p>
 <p>步骤2： phpstudy其他选项设置—&gt;打开配置文件—&gt;  vhosts-conf</p>
-<p><img src="./images/phpstudy_09.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_09.png" alt=""></p>
 <p>步骤3：更改options 配置</p>
-<p><img src="./images/phpstudy_10.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_10.png" alt=""></p>
 <p>修改如下：</p>
-<p><img src="./images/phpstudy_11.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_11.png" alt=""></p>
 <p>如配有多个网站则逐一修改即可。</p>
 <p>修改完成，<strong>重启phpstudy软件</strong>，则可以显示网站的目录</p>
-<p><img src="./images/phpstudy_12.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_12.png" alt=""></p>
 <h4 id="4-8-更改默认打开首页"><a href="#4-8-更改默认打开首页" class="headerlink" title="4.8 更改默认打开首页"></a>4.8 更改默认打开首页</h4><p>更改步骤1：phpstudy其他选项设置</p>
 <p>更改步骤2：phpstudy设置 —-&gt; 端口常规设置</p>
-<p><img src="./images/phpstudy_13.png" alt=""></p>
-<p><img src="./images/phpstudy_14.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_13.png" alt=""></p>
+<p><img src="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/./images/phpstudy_14.png" alt=""></p>
 <p>默认进入网站时，会寻找目录中的index.html ，index.php , index.htm文件</p>
 <p>也可以把index.php文件，排在最前面，这样可以优先找到index.php文件(方便学习php开发)。</p>
 
@@ -475,6 +561,10 @@
             </li>
             
             <li>
+                <a class="footer-post" href="/2015/07/20/phpstudy/">搭建HTTP服务器之phpStudy集成软件安装图</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2015/07/20/搭建HTTP服务器之phpStudy集成软件安装图解/">搭建HTTP服务器之phpStudy集成软件安装图</a>
             </li>
             
@@ -501,11 +591,11 @@
         </li>
         
         <li>
-            <a class="footer-post" href="/categories/javescript/server/">server</a>
+            <a class="footer-post" href="/categories/javascript/服务器/">服务器</a>
         </li>
         
         <li>
-            <a class="footer-post" href="/categories/javascript/服务器/">服务器</a>
+            <a class="footer-post" href="/categories/javascript/服务器/软件/">软件</a>
         </li>
         
     </ul>

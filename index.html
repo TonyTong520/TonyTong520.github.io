@@ -151,6 +151,161 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/06/28/js常见报错总结/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-06-28</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h1 id="js-报错笔记"><a href="#js-报错笔记" class="headerlink" title="js 报错笔记"></a>js 报错笔记</h1><h2 id="js开发中遇到一些常见的报错信息"><a href="#js开发中遇到一些常见的报错信息" class="headerlink" title="js开发中遇到一些常见的报错信息"></a>js开发中遇到一些常见的报错信息</h2><p>1.<em>Uncaught TypeError: undefined is not a function</em></p>
+<ul>
+<li>错误类型为TypeError（类型错误）;</li>
+<li>错误产生：你希望调用一个函数，这个值却不是一个函数。</li>
+<li>错误修复：确保函数名正确。这个错误中，错误行号能正确指示。</li>
+</ul>
+<p>2.<em>Uncaught ReferenceError: Invalid left-hand side in assignment</em></p>
+<blockquote>
+<p>相关错误： </p>
+<h2 id="gt-2-1-Uncaught-exception-ReferenceError-Cannot-assign-to-‘functionCall-’"><a href="#gt-2-1-Uncaught-exception-ReferenceError-Cannot-assign-to-‘functionCall-’" class="headerlink" title="&gt;2.1 Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’  "></a>&gt;2.1 <em>Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’</em>  </h2><blockquote>
+<p>2.2 <em>Uncaught exception: ReferenceError: Cannot assign to ‘this’</em></p>
+</blockquote>
+</blockquote>
+<ul>
+<li>错误产生：你试图给某某赋值，但是赋值不成功时产生错误。</li>
+<li><p>这种情况经常发生在if语句中，例如下面的案例，开发者不小心把==写成了=，而且等号左侧的东西不能被赋值，于是产生了错误</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(doSomething() = <span class="string">'somevalue'</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>错误修复：确保不向函数、this关键字赋值。</p>
+</li>
+</ul>
+<p>3.<em>Uncaught TypeError: Converting circular structure to JSON</em></p>
+<blockquote>
+<p><em>TypeError: cyclic object value, Circular reference in value argument not supported</em></p>
+</blockquote>
+<ul>
+<li><p>错误产生：产生了环形引用，然后再进行JSON转换（JSON.stringify）时产生错误，如下面代码所示，a和b进行了相互引用，因此不能转换为JSON。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123; &#125;;</div><div class="line"><span class="keyword">var</span> b = &#123; <span class="attr">a</span>: a &#125;;</div><div class="line">a.b = b;</div><div class="line"><span class="built_in">JSON</span>.stringify(a);</div></pre></td></tr></table></figure>
+</li>
+<li><p>错误修复：去除任何欲转换为JSON的对象中的环形引用。</p>
+</li>
+</ul>
+<p>4.<em>Unexpected token ;</em></p>
+<blockquote>
+<p>相关错误: </p>
+<blockquote>
+<ul>
+<li>Expected ),</li>
+<li>missing ) after argument list，</li>
+<li>Unexpected token ]</li>
+</ul>
+</blockquote>
+</blockquote>
+<ul>
+<li>错误产生：JS编译器需要点什么，代码里却没有。通常是忘记了匹配的)、]、}、;等。</li>
+<li>错误修复：编译器有时不能正确指出错误行号，比较难以修复。</li>
+<li>An error with [ ] { } ( ) —-主要是没有正常匹配而致，错误行号往往不对。</li>
+<li>Unexpected /—-正则表达式相关错误，错误行号往往是正确的。</li>
+<li>Unexpected ; —-往往是多了一个分号，例如在对象里、数字字面值、函数调用参数里等，错误行号是正确的。</li>
+</ul>
+<p>5.<em>Uncaught SyntaxError: Unexpected token ILLEGAL    未知的语法错误</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>Unterminated String Literal,</li>
+<li>Invalid Line Terminator</li>
+</ul>
+</blockquote>
+<ul>
+<li>错误产生：字符串缺少关闭的引号。</li>
+<li>错误修复：确保所有的字符串使用正确的引号。</li>
+</ul>
+<p>6.<em>Uncaught TypeError: Cannot read property ‘foo’ of null,Uncaught TypeError: Cannot read property ‘foo’ of undefined</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>TypeError: someVal is null，</li>
+<li>Unable to get property ‘foo’ of undefined or null reference</li>
+<li>Cannot set property ‘foo’ of null,</li>
+<li>Cannot set property ‘foo’ of undefined</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>错误产生：试图将null或undefined当做对象读取属性时，产生错误，如下面代码所示。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someVal = <span class="literal">null</span>;</div><div class="line"><span class="built_in">console</span>.log(someVal.foo);</div></pre></td></tr></table></figure>
+</li>
+<li><p>错误修复：一般为拼写错误，好好检查错误行号周边变量的拼写，确保正确。</p>
+</li>
+</ul>
+<p>7.<em>Uncaught RangeError: Maximum call stack size exceeded</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>Uncaught exception: RangeError: Maximum recursion depth exceeded，<br>too much recursion，</li>
+<li>Stack overflow</li>
+</ul>
+</blockquote>
+<ul>
+<li>错误产生： 由程序逻辑bug造成的无限循环调用函数，无限递归调用函数。</li>
+<li>错误修复：检查循环部分，清除造成无限循环的bug。</li>
+</ul>
+<p>8.<em>Uncaught URIError: URI malformed</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>URIError: malformed URI sequence</li>
+</ul>
+</blockquote>
+<ul>
+<li>错误产生： 错误的URL解析请求所致</li>
+<li>错误修复：找见错误行号，修正URL请求。</li>
+</ul>
+<p>9.<em>XMLHttpRequest cannot load <a href="http://some/url/" target="_blank" rel="external">http://some/url/</a>. No ‘Access-Control-Allow-Origin’ header is present on the requested resource</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>URIError: Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at <a href="http://some/url/" target="_blank" rel="external">http://some/url/</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>错误产生： 使用XMLHttpRequest时url有误所致。</li>
+<li>错误修复：确保URL正确，并且保证遵循 same-origin policy （同源策略），解决问题的最佳方案是找到错误提示中的URL，并修正错误。</li>
+</ul>
+<p>10.<em>InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable</em></p>
+<blockquote>
+<p>相关错误: </p>
+<ul>
+<li>URIError: InvalidStateError，</li>
+<li>DOMException code 11</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>错误产生： 在不能调用一个函数的时候调用一个函数。经常发生在使用XMLHttpRequest时，函数没有准备好时试图调用触发错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.setRequestHeader(<span class="string">'Some-Header'</span>, <span class="string">'val'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码将报出一个错误，setRequestHeader函数只有在xhr.open之后才可以调用。</p>
+</li>
+<li>错误修复：找到提示的错误行，确保代码在正确的时刻运行，或者在改代码前加上必要的方法（例如上面代码的xhr.open）。</li>
+</ul>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2017/06/26/如何搭建一个WAMPSEVER/">
                 如何搭建一个WAMPServer
             </a>
@@ -368,6 +523,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2017/06/28/js常见报错总结/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2017/06/26/如何搭建一个WAMPSEVER/">如何搭建一个WAMPServer</a>
             </li>
             
@@ -377,10 +536,6 @@
             
             <li>
                 <a class="footer-post" href="/2017/06/25/1123/">1123</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2017/06/24/我的第二篇博客/">我的第二篇博客</a>
             </li>
             
         </ul>
@@ -394,19 +549,19 @@
     <ul>
         
         <li>
-            <a class="footer-post" href="/categories/javescript/">javescript</a>
-        </li>
-        
-        <li>
             <a class="footer-post" href="/categories/javascript/">javascript</a>
         </li>
         
         <li>
-            <a class="footer-post" href="/categories/javescript/web/">web</a>
+            <a class="footer-post" href="/categories/javescript/">javescript</a>
         </li>
         
         <li>
             <a class="footer-post" href="/categories/javascript/服务器/">服务器</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/javescript/web/">web</a>
         </li>
         
     </ul>
